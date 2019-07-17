@@ -1,0 +1,55 @@
+﻿@model WebApplication1.ViewModel.CreateStudentViewModel
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm("Create", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true, "", new { })
+
+    <table>
+        <tr>
+            <th>@Html.LabelFor(model => model.ID)</th>
+            <td>
+                @Html.TextBoxFor(model => model.ID)
+                @Html.ValidationMessageFor(model => model.ID, "", new {})
+            </td>
+        </tr>
+        <tr>
+            <th>@Html.LabelFor(model => model.NAME)</th>
+            <td>
+                @Html.TextBoxFor(model => model.NAME)
+                @Html.ValidationMessageFor(model => model.NAME, "", new { })
+            </td>
+        </tr>
+        <tr>
+            <th>@Html.LabelFor(model => model.EMAIL)</th>
+            <td>
+                @Html.TextBoxFor(model => model.EMAIL)
+                @Html.ValidationMessageFor(model => model.EMAIL, "", new { })
+            </td>
+        </tr>
+        <tr>
+            <th>@Html.LabelFor(model => model.TEL)</th>
+            <td>
+                @Html.TextBoxFor(model => model.TEL)
+                @Html.ValidationMessageFor(model => model.TEL, "", new { })
+            </td>
+        </tr>
+        <tr>
+            <th>@Html.LabelFor(model => model.ADDRESS)</th>
+            <td>
+                @Html.TextBoxFor(model => model.ADDRESS)
+                @Html.ValidationMessageFor(model => model.ADDRESS, "", new { })
+            </td>
+        </tr>
+        <tr>
+            <td><input type="submit"></td>
+            <td></td>
+        </tr>
+    </table>
+}
